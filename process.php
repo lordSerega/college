@@ -52,10 +52,11 @@ if (isset($_POST['addAvv'])){
 
 
 
-	header("location: books.php");
+
+	header("location: avtorPosobie.php?bookID=$IDBOOK");
 	} catch (Exception $mysqli_error) {
 		
-		header("location: books.php");
+		header("location: avtorPosobie.php?bookID=$IDBOOK");
 		
 		}
 
@@ -201,12 +202,14 @@ if (isset($_POST['addAvv'])){
 		header("location: books.php");
 	}
 
-		if (isset($_GET['deliteAvrot'])){
-		$deleted = $_GET['deliteAvrot'];
-		$mysqli->query("DELETE FROM авторпособия WHERE кодАвтораПособия=$deleted") or die ($mysqli->error());
+		if (isset($_POST['deliteAvrot'])){
+		$deletAut = $_POST['avtorID'];
+		$IDBOOK = $_POST['id'];
+
+		$mysqli->query("DELETE FROM авторпособия WHERE кодАвтораПособия=$deletAut") or die ($mysqli->error());
 
 
-		header("location: books.php");
+	header("location: avtorPosobie.php?bookID=$IDBOOK");
 	}
 
 
