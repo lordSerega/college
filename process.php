@@ -251,5 +251,43 @@ if (isset($_POST['addAvv'])){
 		}
 
 
+			if(isset($_GET['details'])){
+			$id=$_GET['details'];
+			$query="SELECT
+					  учебноепособие.кодПособия,
+					  учебноепособие.название AS названиеП,
+					  издательство.название,
+					  учебноепособие.датаИздания,
+					  учебноепособие.страницы
+					FROM учебноепособие
+					  INNER JOIN издательство
+					    ON учебноепособие.издательство = издательство.кодИздательства
+					WHERE учебноепособие.кодПособия = ?";
+		
+			$stmt=$mysqli->prepare($query);
+			$stmt->bind_param("i",$id);
+			$stmt->execute();
+			$result=$stmt->get_result();
+			$row=$result->fetch_assoc();
+
+			$dName=$row['названиеП'];
+			$dIzdName=$row['название'];
+			$dDate=$row['датаИздания'];
+			$dStr=$row['страницы'];
+
+
+
+
+
+
+
+			
+
+
+
+				}
+
+
+
 
 	?>

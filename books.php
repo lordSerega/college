@@ -141,7 +141,7 @@ FROM учебноепособие
 						<td><?php echo $row['датаИздания']; ?></td>
 						<td><?php echo $row['издНАз']; ?></td>
 						<td>
-							<a href="books.php?details=<?php echo $row['кодПособия']; ?>" class="btn btn-dark"><i class="fa fa-info" aria-hidden="true"></i></a>
+							<a href="details.php?details=<?php echo $row['кодПособия']; ?>" class="btn btn-dark"><i class="fa fa-info" aria-hidden="true"></i></a>
 							<a href="books.php?editBook=<?php echo $row['кодПособия']; ?>" class="btn btn-dark">    	<i class="fas fa-pen"></i> </a>
 							<a href="process.php?deliteBook=<?php echo $row['кодПособия']; ?>" class="btn btn-dark"><i class="far fa-trash-alt"></i> </a>
 
